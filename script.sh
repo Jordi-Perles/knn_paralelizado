@@ -206,9 +206,9 @@ for problem_size in "${PROBLEM_SIZES[@]}"; do
       if [[ "$VERSION" == "secuencial" ]]; then
         (cd "$ROOT/$BUILD_DIR"; env KNN_TRAIN_SIZE="$problem_size" /usr/bin/time -f 'Tiempo real total: %e s\nCPU: %P\nMemoria máxima: %M KB' -o "$TIME_TMP" "./$SEQUENTIAL_TARGET") >"$RUN_TMP" 2>&1
       elif [[ "$CLUSTER" -eq 1 ]]; then
-        (cd "$ROOT/$BUILD_DIR"; env KNN_TRAIN_SIZE="$problem_size" /usr/bin/time -f 'Tiempo real total: %e s\nCPU: %P\nMemoria máxima: %M KB' -o "$TIME_TMP" mpirun --hostfile "$HOSTFILE" --wdir "$ROOT/$BUILD_DIR" -np "$np" -x KNN_TRAIN_SIZE "$EXECUTABLE") >"$RUN_TMP" 2>&1
+        (cd "$ROOT/$BUILD_DIR"; env KNN_TRAIN_SIZE="$problem_size" /usr/bin/time -f 'Tiempo real total: %e s\nCPU: %P\nMemoria máxima: %M KB' -o "$TIME_TMP" mpirun --hostfile "$HOSTFILE" --wdir "$ROOT/$BUILD_DIR" -np "$np" -genv KNN_TRAIN_SIZE "$size" "$EXECUTABLE") >"$RUN_TMP" 2>&1
       else
-        (cd "$ROOT/$BUILD_DIR"; env KNN_TRAIN_SIZE="$problem_size" /usr/bin/time -f 'Tiempo real total: %e s\nCPU: %P\nMemoria máxima: %M KB' -o "$TIME_TMP" mpirun -np "$np" -x KNN_TRAIN_SIZE "$EXECUTABLE") >"$RUN_TMP" 2>&1
+        (cd "$ROOT/$BUILD_DIR"; env KNN_TRAIN_SIZE="$problem_size" /usr/bin/time -f 'Tiempo real total: %e s\nCPU: %P\nMemoria máxima: %M KB' -o "$TIME_TMP" mpirun -np "$np" -genv KNN_TRAIN_SIZE "$size" "$EXECUTABLE") >"$RUN_TMP" 2>&1
       fi
       STATUS=$?
       set -e
