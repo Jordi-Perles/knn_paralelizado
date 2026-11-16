@@ -11,7 +11,7 @@ cmake-build-*/
 results/
 
 # Configuración local del clúster
-hostfile
+
 
 # Archivos temporales
 *.o

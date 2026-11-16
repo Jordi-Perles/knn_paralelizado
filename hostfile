@@ -1,0 +1,5 @@
+# Sustituye ordenador2 y ordenador3 por los nombres/IP reales del laboratorio.
+# slots indica los procesos disponibles/asignables en cada equipo.
+172.21.242.231
+172.21.242.232
+172.21.242.233
