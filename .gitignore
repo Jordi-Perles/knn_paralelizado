@@ -1,0 +1,27 @@
+# Compilación
+build/
+build-opt/
+cmake-build-*/
+
+# Dataset MNIST
+*.idx3-ubyte
+*.idx1-ubyte
+
+# Resultados experimentales
+results/
+
+# Configuración local del clúster
+hostfile
+
+# Archivos temporales
+*.o
+*.out
+*.tmp
+*.log
+
+# Editores
+.vscode/
+.idea/
+
+# Sistema operativo
+.DS_Store
