@@ -40,6 +40,9 @@ Te dejo el orden que seguiría, con los comandos concretos.
    Antes de lanzar los experimentos largos, prueba una ejecución MPI sencilla entre los equipos. También puedes comprobar dónde se ejecutan los procesos con:
    mpirun --hostfile hostfile --map-by node -np 3 hostname
    
+    mpic++ prueba_mpi.cpp -o prueba_mpi
+    mpirun --hostfile hostfile --map-by node -np 3 ./prueba_mpi
+
    Deberías ver los nombres de los equipos donde se han iniciado los tres procesos.
 8. Lanzar los experimentos dinámicos
    ./script.sh --descargar --cluster --dinamica

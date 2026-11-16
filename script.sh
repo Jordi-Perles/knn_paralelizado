@@ -12,6 +12,7 @@ PROBLEM_SIZES=(5000 10000 20000)
 # CONFIGURACIÓN DEL CLÚSTER
 # ============================================================
 CLUSTER=0
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 HOSTFILE="${HOSTFILE:-$ROOT/hostfile}"
 
 BUILD_DIR="${BUILD_DIR:-build-opt}"
